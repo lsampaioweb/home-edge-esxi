@@ -1,0 +1,11 @@
+Enabled             : Yes
+Start delay         : 30s
+Stop delay          : 10s
+Stop action         : Power off
+Wait for heartbeat  : Yes
+
+Virtual Machines:
+  edge-ldap-01        : 1
+  edge-postgresql-01  : 2
+  edge-zabbix-01      : 3
+  edge-grafana-01     : 4
