@@ -1,0 +1,4 @@
+Name    : Management Network
+VLAN ID : 3
+vSwitch : vSwitch0
+

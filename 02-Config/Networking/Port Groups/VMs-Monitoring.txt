@@ -1,0 +1,3 @@
+Name    : VMs-Monitoring
+VLAN ID : 5
+vSwitch : vSwitch0

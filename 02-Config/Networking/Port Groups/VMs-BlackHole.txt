@@ -1,0 +1,3 @@
+Name    : VMs-BlackHole
+VLAN ID : 0
+vSwitch : vSwitch0

@@ -1,0 +1,4 @@
+Name    : VMs-Core
+VLAN ID : 4
+vSwitch : vSwitch0
+
