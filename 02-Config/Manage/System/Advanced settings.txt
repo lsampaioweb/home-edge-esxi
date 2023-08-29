@@ -1,0 +1,13 @@
+01: Set the Remote Syslog Server.
+  Select Syslog.global.logHost and click on the Edit option.
+  proto://hostname|ipv4|'['ipv6']'[:port][?formatter=value[&framing=value]].
+  
+  New value:  udp://edge-grafana-01.homelab:514
+
+  Select Syslog.global.logLevel and click on the Edit option.
+  New value: warning
+
+02: Enable syslog firewall ruleset.  
+  On the Vmware Dashboard, Access the Networking Menu.
+  Access the Firewall rules tab.
+  Select the option named Syslog.
