@@ -1,0 +1,6 @@
+Edit NTP Settings:
+  Use Network Time Protocol (enable NTP client) : Checked
+  NTP service startup policy                    : Start and stop with host
+  NTP servers                                   : 192.168.3.1
+
+Enable the service ntpd.
