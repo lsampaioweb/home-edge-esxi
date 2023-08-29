@@ -3,3 +3,5 @@
 02 - Set Time & date.
 
 03 - Set autostart.
+
+04 - Storage.
