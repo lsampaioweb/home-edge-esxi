@@ -1,0 +1,9 @@
+Click the user login info -> Settings
+  Send usage statistics     : Unchecked
+  Enable visual effects     : Checked
+  Show only recent objects  : Checked
+  Show welcome message      : Unchecked
+
+  Language            : English
+  Theme               : Dark
+  Application timeout : 15 minutes
