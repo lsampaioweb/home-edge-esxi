@@ -1,0 +1,5 @@
+01 - Change Autostart Configuration in the VMware Host Client
+  https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.hostclient.doc/GUID-326962F1-E34C-478B-98EC-FACFE3BF682E.html
+
+02 - A Guide to ESXi SNMP Configuration for ESXi Monitoring
+  https://www.nakivo.com/blog/a-guide-to-esxi-snmp-configuration-for-esxi-monitoring/
