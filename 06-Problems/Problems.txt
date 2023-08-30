@@ -1,0 +1,21 @@
+01 - /var/log/vmkwarning.log
+  vmkwarning: cpu2:262251)WARNING: HBX: 2720: Failed to cleanup registration key on volume64ed3be0-56ee94c6-362c-60beb408f766: Failure
+  vmkwarning: cpu2:262251)WARNING: Vol3: 4323: Error closing the volume: . Eviction fails: Failure
+
+  vmkwarning: cpu2:262548)WARNING: NVMEDEV:7144 invalid Subsystem NQN, fallback to legacy nqn.
+
+  vmkwarning: cpu0:262144)WARNING: PCI: 87: 0000:00:1f.5: Failed to add BAR[0] (MEM f=0x0 0xfe010000-0xfe011000): Limit exceeded
+  vmkwarning: cpu0:262381)WARNING: tpmDriver: TPMDriverCheckTPM2:56: TPM 2 TIS interface not active.
+  vmkwarning: cpu0:262381)WARNING: tpmDriver: TPMDriverAttachDevice:202: \_SB_.TPM_: couldn't validate TPM support: Not supported
+  vmkwarning: cpu0:262381)WARNING: Elf: 3273: Kernel based module load of tpmdriver failed: Failure <Mod_LoadDone failed>
+
+  vmkwarning: cpu2:262169)WARNING: ScsiDeviceIO: 4495: ModeSense 0x1a request failed - blocking page:0x1c subpage:0x2 t10.ATA_____KINGSTON_SA400S37120G___________________50026B7783FB5951____
+  vmkwarning: cpu1:262715)WARNING: HPP: HppRegisterDeviceEvents:2890: Could not register reservation events on device "Unregistered Device", Status: Failure. Event Registration will be retried on next path eval.
+
+02 - /var/log/syslog.log
+  net-cdp[263934]: [error]    poll timeout
+  smartd[263906]: t10.NVMe____CT1000P3SSD8____________________________B60100106DA77964: REALLOCATED SECTOR CT below threshold (0 < 95)
+  smartd[263906]: Failed to set the VSI node status(195887136)
+
+03 - /var/log/hostd.log
+  Hostd[264035]: [Originator@6876 sub=Solo.HttpSvc.HTTPService.HttpConnection] HTTP Connection read failed while waiting for further requests; <io_obj p:0x000000114342ad28, h:-1, <TCP '127.0.0.1 : 8309'>, <TCP '127.0.0.1 : 23509'>>, N7Vmacore16TimeoutExceptionE(Operation timed out: Stream: <io_obj p:0x000000114342ad28, h:-1, <TCP '127.0.0.1 : 8309'>, <TCP '127.0.0.1 : 23509'>>, duration: 00:00:46.360202 (hh:mm:ss.us))
