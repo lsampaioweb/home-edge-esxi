@@ -4,20 +4,22 @@ The certificate should not have a password for the private key.
   Host -> Actions -> Services -> Enable Secure Shell (SSH).
 
 02 - Copy the files to the server.
-  scp -r /opt/certificates/edge-esxi-01.homelab/{*.crt,*.key} root@edge-esxi-01.homelab:~
+  scp -r /opt/certificates/edge-esxi-01.homelab/{*.crt,*.key} root@edge-esxi-01.homelab:/etc/vmware/ssl/
 
-03 - Move the files to the correct folder.
-  mv *.crt /etc/vmware/ssl/
-  mv *.key /etc/vmware/ssl/
+03 - Create a backup
   cd /etc/vmware/ssl
+  cp rui.crt rui.crt.bak &&
+  cp rui.key rui.key.bak
 
-04 - Create a backup
-  cp rui.crt rui.crt.bak
-  cp rui.key rui.key.bab
-
-05 - Add the content of the new crt and key files in the old files.
-  cat edge-esxi-01.homelab.crt > rui.crt
+04 - Add the content of the new crt and key files in the old files.
+  cat edge-esxi-01.homelab.crt > rui.crt &&
   cat edge-esxi-01.homelab.key > rui.key
+
+05 - Remove the old files.
+  rm edge-esxi-01.homelab.*
 
 06 - Restart the service:
   /etc/init.d/hostd restart
+
+07 - Disable SSH access.
+  Host -> Actions -> Services -> Disable Secure Shell (SSH).

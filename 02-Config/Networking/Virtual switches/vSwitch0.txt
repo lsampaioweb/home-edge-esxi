@@ -5,6 +5,10 @@ Uplink 1  : vmnic1 - Up, 1000 Mbps
 Uplink 1  : vmnic2 - Up, 1000 Mbps
 Uplink 1  : vmnic3 - Up, 1000 Mbps
 
+Link discovery:
+  Mode      : None
+  Protocol  : Cisco discovery protocol (CDP)
+
 NIC teaming:
   Load balancing              : Route based on IP hash
   Network failover detection  : Link status only

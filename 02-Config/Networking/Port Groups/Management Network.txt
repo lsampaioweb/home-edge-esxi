@@ -2,3 +2,14 @@ Name    : Management Network
 VLAN ID : 3
 vSwitch : vSwitch0
 
+Security:
+  Promiscuous mode    : Inherit from vSwitch
+  MAC address changes : Inherit from vSwitch
+  Forged transmits    : Inherit from vSwitch
+
+NIC teaming
+  Load balancing              : Inherit from vSwitch
+  Network failover detection  : Inherit from vSwitch
+  Notify switches             : Inherit from vSwitch
+  Failback                    : Inherit from vSwitch
+  Override failover order     : No

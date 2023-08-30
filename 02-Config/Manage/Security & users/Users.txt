@@ -1,0 +1,21 @@
+01 - User name      : lsampaio-esxi-team
+Description         : User that I will use to connect to.
+Password            : '<Keychain: "lsampaio-edge-esxi-01-team">'
+Enable Shell Access : Checked
+
+On Host -> Actions -> Permissions:
+  Add user for Host
+  Name                      : lsampaio-esxi-team
+  Permission                : Administrator
+  Propagate to all children : Checked
+
+02 - User name      : zabbix-user
+Description         : User that Zabbix will use connect and extract metrics.
+Password            : '<Keychain: "edge-esxi-01-zabbix-user">'
+Enable Shell Access : Unchecked
+
+On Host -> Actions -> Permissions:
+  Add user for Host
+  Name                      : zabbix-user
+  Permission                : Read-only
+  Propagate to all children : Checked
