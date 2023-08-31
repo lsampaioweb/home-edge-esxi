@@ -1,0 +1,29 @@
+Guest OS:
+  Name  : edge-postgresql-01
+
+  Compatibility     : ESXi 8.0 virtual machine
+  Guest OS family   : Linux
+  Guest OS version  : Ubuntu Linux (64-bit)
+
+Storage: 
+  Name: dt-vms-01
+
+Settings:
+  Virtual Hardware:
+    CPU:
+      CPU             : 2
+      CPU Hot Plug    : Checked
+    Memory:
+      RAM             : 4 GB
+      Memory Hot Plug : Checked
+    Hard disk 1
+      Size              : 25 GB
+      Disk Provisioning : Thin provisioned
+    Hard disk 2
+      Size              : 100 GB
+      Disk Provisioning : Thin provisioned
+    Network Adapter 1
+      Name              : VMs-Monitoring
+    CD/DVD Drive 1
+      Source            : Datastore ISO file
+      Media             : [dt-vms-01] ISOs/ubuntu-22.04.2-live-server-amd64.iso

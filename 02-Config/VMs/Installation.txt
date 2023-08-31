@@ -1,0 +1,8 @@
+Installation:
+  Device:
+    home-lv /home 4GB
+    var-lv  /var  6.9GB
+
+  Your name   : Luciano Sampaio Martins de Souza
+  Server name : edge-XXX-01
+  username    : lsampaio

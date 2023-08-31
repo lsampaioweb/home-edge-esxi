@@ -1,4 +1,4 @@
-The certificate should not have a password for the private key.
+** The certificate should not have a password for the private key.
 
 01 - Enable SSH access.
   Host -> Actions -> Services -> Enable Secure Shell (SSH).
