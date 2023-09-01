@@ -1,0 +1,124 @@
+01 - Packages.
+  sudo apt update && sudo apt upgrade -y &&
+  sudo apt install -y ubuntu-advantage-tools &&
+  sudo apt install -y apt-transport-https software-properties-common &&
+  sudo apt install -y initramfs-tools initramfs-tools-bin initramfs-tools-core &&
+  sudo apt install -y python-is-python3 net-tools tree &&
+  sudo apt install -y fail2ban
+
+02 - NTP.
+  date
+  timedatectl
+  sudo timedatectl set-timezone America/Maceio
+
+03 - Disable IPV6.
+  sudo nano /etc/default/grub
+  GRUB_CMDLINE_LINUX="ipv6.disable=1"
+  sudo update-grub
+
+04 - Make the network interface name start with eth0, 1 and so on.
+  sudo nano /etc/default/grub
+  GRUB_CMDLINE_LINUX="net.ifnames=0 biosdevname=0"
+  sudo update-grub
+
+05 - Update Grub to show the menu during startup.
+  sudo nano /etc/default/grub
+  GRUB_TIMEOUT_STYLE=menu
+  GRUB_TIMEOUT=1
+  sudo update-grub
+
+06 - Copiar certificado da CA para o servidor.
+  Criar chave SSH da CA.
+    ssh-keygen -o -a 100 -t ed25519 -C "Homelab Certificate Authority" -f /opt/certificates/certificate.authority/ca_host_key
+
+  Assinar as chaves SSH dos servidores com a CA.
+    sudo nano ca_host_key
+    cat /opt/certificates/certificate.authority/ca_host_key.key
+    sudo chmod 600 ca_host_key
+    sudo ssh-keygen -s ~/ca_host_key -I "$(hostname)" -n "$(hostname),$(hostname -I|tr ' ' ',')$(hostname).homelab" -V -5m:+520w -h /etc/ssh/ssh_host_dsa_key.pub /etc/ssh/ssh_host_rsa_key.pub /etc/ssh/ssh_host_ecdsa_key.pub /etc/ssh/ssh_host_ed25519_key.pub
+    Passoword: Keychain: "ssl.certificate.authority"
+    sudo rm ca_host_key
+
+  We need to establish the path to our host certificate file:
+    sudo nano /etc/ssh/sshd_config
+    HostCertificate /etc/ssh/ssh_host_ed25519_key-cert.pub
+
+  Confiar em chaves assinadas pela CA.
+    sudo nano /etc/ssh/ssh_known_hosts
+    # A CA key, accepted for any host in *.homelab
+    @cert-authority *.homelab ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMZaCxYOWNcHzIH0RqWMasEztJOvv51EK9Jq0/rS0keY Homelab Certificate Authority
+  
+  Restart the SSH daemon to make these changes happen:
+    sudo service ssh restart
+
+  Adicionar a CA como certificado confiável.
+  cd /usr/local/share/ca-certificates
+  sudo nano certificate.authority.crt
+  sudo update-ca-certificates
+
+07 - UFW.
+  cat /etc/services | grep 22
+  cat /etc/services | grep ssh
+
+  sudo ufw default deny incoming &&
+  sudo ufw default allow outgoing &&
+  sudo ufw allow from 192.168.2.10 to any port ssh comment "MacBook-Luciano - SSH"
+
+  sudo touch /var/log/ufw.log && sudo chown syslog:syslog /var/log/ufw.log
+  sudo ufw enable
+
+  sudo ufw status
+  sudo ufw status verbose
+  sudo ufw status numbered
+
+08 - Fail2Ban.
+  Create the SSH Jails
+    sudo nano /etc/fail2ban/jail.d/ssh.conf
+
+[sshd]
+enabled  = true
+port     = ssh
+filter   = sshd
+logpath  = /var/log/auth.log
+findtime = 600
+maxretry = 3 
+bantime  = 3600
+ignoreip = 192.168.2.10/32
+
+  Create the Apache Jails
+    sudo nano /etc/fail2ban/jail.d/apache.conf
+
+[apache-auth]
+enabled  = true
+port     = http,https
+filter   = apache-auth
+logpath  = %(apache_error_log)s
+findtime = 600
+maxretry = 3 
+bantime  = 3600
+ignoreip = 192.168.2.10/32
+
+  Save the file and restart the Fail2Ban service
+    sudo systemctl enable fail2ban.service &&
+    sudo systemctl restart fail2ban.service
+
+  Monitoring With Fail2Ban-Client
+    You can use the Fail2Ban-client tool to check the status of Fail2Ban and the active jails.
+    sudo fail2ban-client status
+
+  To view the status and information regarding a particular jail like sshd
+    sudo fail2ban-client status sshd
+
+  Ban an IP
+    sudo fail2ban-client set sshd banip 23.34.45.56
+
+  Unban an IP
+    Replace 203.0.113.0 and jailname with the IP address and name of the jail that you'd like to unban
+    sudo fail2ban-client set jailname unbanip 203.0.113.0
+    sudo fail2ban-client set sshd unbanip 192.168.0.141
+
+  Stop and disable
+    systemctl stop fail2ban
+    systemctl disable fail2ban
+
+09 - Rsyslog as a Client.
