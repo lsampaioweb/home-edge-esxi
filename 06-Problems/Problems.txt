@@ -19,3 +19,7 @@
 
 03 - /var/log/hostd.log
   Hostd[264035]: [Originator@6876 sub=Solo.HttpSvc.HTTPService.HttpConnection] HTTP Connection read failed while waiting for further requests; <io_obj p:0x000000114342ad28, h:-1, <TCP '127.0.0.1 : 8309'>, <TCP '127.0.0.1 : 23509'>>, N7Vmacore16TimeoutExceptionE(Operation timed out: Stream: <io_obj p:0x000000114342ad28, h:-1, <TCP '127.0.0.1 : 8309'>, <TCP '127.0.0.1 : 23509'>>, duration: 00:00:46.360202 (hh:mm:ss.us))
+
+04 - /var/log/vmkernel.log
+  vmkernel: cpu1:282516)cswitch: VSwitchPortEthFRPUpdateInt:5497: [nsx@6876 comp="nsx-esx" subcomp="vswitch"]Failed to check if PS[vSwitch0] is in Mux mode ret status: 0xbad0003
+  vmkernel: cpu1:282516)cswitch: VSwitchPortEthFRPUpdateInt:5568: [nsx@6876 comp="nsx-esx" subcomp="vswitch"]Unblock Port 67108904
