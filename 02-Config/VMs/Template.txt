@@ -1,4 +1,10 @@
-01 - Packages.
+01 - Set the full name of the VM.
+  sudo hostnamectl hostname edge-ldap-01.homelab
+  sudo hostnamectl hostname edge-postgresql-01.homelab
+  sudo hostnamectl hostname edge-zabbix-01.homelab
+  sudo hostnamectl hostname edge-grafana-01.homelab
+
+02 - Packages.
   sudo apt update && sudo apt upgrade -y &&
   sudo apt install -y ubuntu-advantage-tools &&
   sudo apt install -y apt-transport-https software-properties-common &&
@@ -6,28 +12,28 @@
   sudo apt install -y python-is-python3 net-tools tree &&
   sudo apt install -y fail2ban
 
-02 - NTP.
+03 - NTP.
   date
   timedatectl
   sudo timedatectl set-timezone America/Maceio
 
-03 - Disable IPV6.
+04 - Disable IPV6.
   sudo nano /etc/default/grub
   GRUB_CMDLINE_LINUX="ipv6.disable=1"
   sudo update-grub
 
-04 - Make the network interface name start with eth0, 1 and so on.
+05 - Make the network interface name start with eth0, 1 and so on.
   sudo nano /etc/default/grub
   GRUB_CMDLINE_LINUX="net.ifnames=0 biosdevname=0"
   sudo update-grub
 
-05 - Update Grub to show the menu during startup.
+06 - Update Grub to show the menu during startup.
   sudo nano /etc/default/grub
   GRUB_TIMEOUT_STYLE=menu
   GRUB_TIMEOUT=1
   sudo update-grub
 
-06 - Copiar certificado da CA para o servidor.
+07 - Copiar certificado da CA para o servidor.
   Criar chave SSH da CA.
     ssh-keygen -o -a 100 -t ed25519 -C "Homelab Certificate Authority" -f /opt/certificates/certificate.authority/ca_host_key
 
@@ -56,7 +62,7 @@
   sudo nano certificate.authority.crt
   sudo update-ca-certificates
 
-07 - UFW.
+08 - UFW.
   cat /etc/services | grep 22
   cat /etc/services | grep ssh
 
@@ -71,7 +77,7 @@
   sudo ufw status verbose
   sudo ufw status numbered
 
-08 - Fail2Ban.
+09 - Fail2Ban.
   Create the SSH Jails
     sudo nano /etc/fail2ban/jail.d/ssh.conf
 
@@ -121,4 +127,4 @@ ignoreip = 192.168.2.10/32
     systemctl stop fail2ban
     systemctl disable fail2ban
 
-09 - Rsyslog as a Client.
+10 - Rsyslog as a Client.
