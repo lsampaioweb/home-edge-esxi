@@ -6,6 +6,8 @@ Repository with the settings used on my ESXi 8 on the Home environment.
 
 1. Networking.
 
+1. ESXi hostname.
+
 1. Time & date.
 
 1. SSL Certificate.

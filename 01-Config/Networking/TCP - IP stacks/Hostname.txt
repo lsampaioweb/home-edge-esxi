@@ -1,0 +1,8 @@
+Click on - Default TCP/IP stack - Edit settings
+
+Manually configure the settings for this TCP/IP stack: Checked
+  Host name	: edge-esxi-01
+
+Save and then return to:
+  Use DHCP DNS services from the following adapter: Checked
+s
