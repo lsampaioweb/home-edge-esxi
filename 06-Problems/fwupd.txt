@@ -1,0 +1,6 @@
+Problem:
+  fwupd[2925]: 08:01:10:0215 FuEngine failed to get releases for UEFI dbx: No releases found: Not compatible with org.freedesktop.fwupd version 1.7.9, requires >= 1.9.1
+
+Links:
+
+Solution:
