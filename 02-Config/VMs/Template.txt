@@ -130,7 +130,8 @@ ignoreip = 192.168.2.10/32
 10 - Set DNS over TLS
   sudo nano /etc/systemd/resolved.conf
     [Resolve]
-    DNSOverTLS=yes
+    #DNSOverTLS=yes
+    DNSOverTLS=opportunistic
 
   sudo systemctl restart systemd-resolved &&
   sudo systemctl status systemd-resolved
