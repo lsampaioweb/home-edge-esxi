@@ -1,0 +1,25 @@
+Problem:
+  multipathd[516]: sda: not initialized after 3 udev retriggers
+  multipathd[516]: sda: add missing path
+  multipathd[516]: sda: failed to get sysfs uid: Invalid argument
+  multipathd[516]: sda: failed to get sgio uid: No such file or directory
+  multipathd[516]: sda: no WWID in state "undef
+  multipathd[516]: ", giving up
+  multipathd[516]: sda: check_path() failed, removing
+
+Links:
+01 - Ubuntu 20.04 multipath configuration
+  https://askubuntu.com/questions/1242731/ubuntu-20-04-multipath-configuration
+
+02 - no /dev/disk/by-id for scsi LUNs on VMWare ESX
+  https://www.suse.com/support/kb/doc/?id=000016951
+
+Solution:  
+  After power-off, right-click the virtual machine, and choose Edit Settings.
+  Click VM Options tab, and select Advanced.
+  Click Edit Configuration in Configuration Parameters.
+  Click Add parameter.
+  In the Key column, type disk.EnableUUID.
+  In the Value column, type TRUE.
+  Click OK and click Save.
+  Power on the virtual machine
