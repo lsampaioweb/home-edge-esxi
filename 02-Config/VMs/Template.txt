@@ -127,4 +127,12 @@ ignoreip = 192.168.2.10/32
     systemctl stop fail2ban
     systemctl disable fail2ban
 
-10 - Rsyslog as a Client.
+10 - Set DNS over TLS
+  sudo nano /etc/systemd/resolved.conf
+    [Resolve]
+    DNSOverTLS=yes
+
+  sudo systemctl restart systemd-resolved &&
+  sudo systemctl status systemd-resolved
+
+11 - Rsyslog as a Client.

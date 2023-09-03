@@ -1,0 +1,13 @@
+Problem:
+  systemd-resolved[917]: Using degraded feature set UDP instead of UDP+EDNS0 for DNS server 192.168.5.1.
+  systemd-resolved[917]: Using degraded feature set UDP instead of TLS+EDNS0 for DNS server 192.168.5.1.
+
+Link: 
+  https://www.davekb.com/browse_computer_tips:systemd_resolved_degraded:txt
+
+Solution:
+  sudo nano /etc/systemd/resolved.conf
+  [Resolve]
+  DNSOverTLS=yes
+  sudo systemctl restart systemd-resolved
+  sudo systemctl status systemd-resolved
