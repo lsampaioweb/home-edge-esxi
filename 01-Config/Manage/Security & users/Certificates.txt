@@ -4,7 +4,7 @@
   Host -> Actions -> Services -> Enable Secure Shell (SSH).
 
 02 - Copy the files to the server.
-  scp -r /opt/certificates/edge-esxi-01.homelab/{*.crt,*.key} root@edge-esxi-01.homelab:/etc/vmware/ssl/
+  scp -r /opt/certificates/edge-esxi-01.homelab/{*.crt,*.key} root@192.168.3.2:/etc/vmware/ssl/
 
 03 - Create a backup
   cd /etc/vmware/ssl
@@ -20,6 +20,7 @@
 
 06 - Restart the service:
   /etc/init.d/hostd restart
+  exit
 
 07 - Disable SSH access.
   Host -> Actions -> Services -> Disable Secure Shell (SSH).

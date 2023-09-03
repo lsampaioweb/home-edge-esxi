@@ -6,7 +6,7 @@ Uplink 1  : vmnic2 - Up, 1000 Mbps
 Uplink 1  : vmnic3 - Up, 1000 Mbps
 
 Link discovery:
-  Mode      : None
+  Mode      : Listen
   Protocol  : Cisco discovery protocol (CDP)
 
 NIC teaming:
