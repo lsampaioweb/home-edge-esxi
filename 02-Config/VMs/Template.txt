@@ -9,7 +9,7 @@
   sudo apt install -y ubuntu-advantage-tools &&
   sudo apt install -y apt-transport-https software-properties-common &&
   sudo apt install -y initramfs-tools initramfs-tools-bin initramfs-tools-core &&
-  sudo apt install -y python-is-python3 net-tools tree &&
+  sudo apt install -y python-is-python3 net-tools tree traceroute &&
   sudo apt install -y fail2ban
 
 03 - NTP.
