@@ -1,0 +1,41 @@
+01 - Enabling SSH Access on ESXi
+  Enable in the WEB Gui.
+
+02 - Check the SNMP status on the ESXi host:
+  esxcli system snmp get
+
+03 - Set authentication protocol and privacy options.
+  esxcli system snmp set -a=SHA1 -x=AES128
+
+04 - Set the community settings
+  esxcli system snmp set --communities esxi
+  esxcli system snmp set --syscontact="lsampaioweb@gmail.com"
+  esxcli system snmp set --syslocation="DC Home-Infra"
+
+  544a33209458 -> The Engine ID is the unique identifier for the SNMP agent (used for SNMP v3).
+  esxcli system snmp set -engineid 544a33209458
+
+05 - Generate hashes by using a command like:
+  esxcli system snmp hash --auth-hash=<password> --priv-hash=<password> --raw-secret
+  auth-hash : KeyChain: edge-esxi-01-zabbix-user
+  priv-hash : KeyChain: edge-esxi-01-zabbix-user
+
+  Authhash: XXX
+  Privhash: YYY
+
+06 - Use the generated hashes and add a user. Adding up to five users is supported.
+  esxcli system snmp set --users edge-esxi-01-zabbix-user/XXX/YYY/priv
+
+07 - Define the SNMP target address:
+  esxcli system snmp set --v3targets edge-zabbix-01.homelab@161/edge-esxi-01-zabbix-user/priv/trap
+
+08 - Configuring ESXi Firewall
+  esxcli network firewall ruleset set --ruleset-id snmp --allowed-all false
+  esxcli network firewall ruleset allowedip add --ruleset-id snmp --ip-address 192.168.5.0/28
+  esxcli network firewall ruleset set --ruleset-id snmp --enabled true
+
+09 - Enable SNMP on ESXi:
+  esxcli system snmp set --enable true
+
+10 - Test SNMP settings:
+  esxcli system snmp test -u=edge-esxi-01-zabbix-user -A=<password> -X=<password> -r
