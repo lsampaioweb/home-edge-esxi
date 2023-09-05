@@ -12,13 +12,10 @@
   esxcli system snmp set --syscontact="lsampaioweb@gmail.com"
   esxcli system snmp set --syslocation="DC Home-Infra"
 
-  544a33209458 -> The Engine ID is the unique identifier for the SNMP agent (used for SNMP v3).
-  esxcli system snmp set -engineid 544a33209458
-
 05 - Generate hashes by using a command like:
   esxcli system snmp hash --auth-hash=<password> --priv-hash=<password> --raw-secret
-  auth-hash : KeyChain: edge-esxi-01-zabbix-user
-  priv-hash : KeyChain: edge-esxi-01-zabbix-user
+  auth-hash : KeyChain: "edge-esxi-01-zabbix-user"
+  priv-hash : KeyChain: "edge-esxi-01-zabbix-user"
 
   Authhash: XXX
   Privhash: YYY
@@ -38,4 +35,5 @@
   esxcli system snmp set --enable true
 
 10 - Test SNMP settings:
+  esxcli system snmp test
   esxcli system snmp test -u=edge-esxi-01-zabbix-user -A=<password> -X=<password> -r
