@@ -136,4 +136,8 @@ ignoreip = 192.168.2.10/32
   sudo systemctl restart systemd-resolved &&
   sudo systemctl status systemd-resolved
 
-11 - Rsyslog as a Client.
+11 - Disable unattended upgrades
+  sudo systemctl stop unattended-upgrades
+  sudo apt remove --purge -y unattended-upgrades
+
+12 - Rsyslog as a Client.
