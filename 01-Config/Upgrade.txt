@@ -10,6 +10,7 @@
 
 04 - Get the list of available esxi profiles using the following:
   esxcli software sources profile list --depot=https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-index.xml
+  esxcli software sources profile list --depot=file:///vmfs/volumes/dt-esxi-01/VMware-ESXi-8.0U1c-22088125-depot.zip
 
   You can combine the above with grep to search for a specific major release
   esxcli software sources profile list --depot=https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-index.xml | grep standard
