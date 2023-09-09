@@ -1,5 +1,13 @@
-01 - Change Autostart Configuration in the VMware Host Client
+01 - VMWare ESXi 8.0 page
+  https://customerconnect.vmware.com/dashboard
+  https://customerconnect.vmware.com/en/evalcenter?p=free-esxi8
+  https://customerconnect.vmware.com/patch
+
+02 - Change Autostart Configuration in the VMware Host Client
   https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.hostclient.doc/GUID-326962F1-E34C-478B-98EC-FACFE3BF682E.html
 
-02 - A Guide to ESXi SNMP Configuration for ESXi Monitoring
+03 - A Guide to ESXi SNMP Configuration for ESXi Monitoring
   https://www.nakivo.com/blog/a-guide-to-esxi-snmp-configuration-for-esxi-monitoring/
+
+04 - ESXi 8.0 Upgrade in three ways
+  https://www.virtualizationhowto.com/2022/10/esxi-8-0-upgrade-in-three-ways/
