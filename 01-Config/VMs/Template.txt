@@ -22,6 +22,11 @@
   GRUB_CMDLINE_LINUX="ipv6.disable=1"
   sudo update-grub
 
+  sudo nano /etc/vmware-tools/tools.conf
+    [guestinfo]
+    max-ipv6-routes=0
+  sudo systemctl restart vmtoolsd.service
+
 05 - Make the network interface name start with eth0, 1 and so on.
   sudo nano /etc/default/grub
   GRUB_CMDLINE_LINUX="net.ifnames=0 biosdevname=0"
@@ -53,7 +58,7 @@
     sudo nano /etc/ssh/ssh_known_hosts
     # A CA key, accepted for any host in *.homelab
     @cert-authority *.homelab ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMZaCxYOWNcHzIH0RqWMasEztJOvv51EK9Jq0/rS0keY Homelab Certificate Authority
-  
+
   Restart the SSH daemon to make these changes happen:
     sudo service ssh restart
 
@@ -87,7 +92,7 @@ port     = ssh
 filter   = sshd
 logpath  = /var/log/auth.log
 findtime = 600
-maxretry = 3 
+maxretry = 3
 bantime  = 3600
 ignoreip = 192.168.2.10/32
 
@@ -100,7 +105,7 @@ port     = http,https
 filter   = apache-auth
 logpath  = %(apache_error_log)s
 findtime = 600
-maxretry = 3 
+maxretry = 3
 bantime  = 3600
 ignoreip = 192.168.2.10/32
 
