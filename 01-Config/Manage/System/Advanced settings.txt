@@ -5,7 +5,7 @@
   New value:  udp://edge-grafana-01.homelab:514
 
   Select Syslog.global.logLevel and click on the Edit option.
-  New value: warning
+  New value: error
 
 02: Enable syslog firewall ruleset.  
   On the Vmware Dashboard, Access the Networking Menu.
