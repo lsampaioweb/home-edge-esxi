@@ -27,6 +27,11 @@
     max-ipv6-routes=0
   sudo systemctl restart vmtoolsd.service
 
+  sudo nano /etc/sysctl.d/disable-ipv6.conf
+    net.ipv6.conf.all.disable_ipv6 = 1
+    net.ipv6.conf.default.disable_ipv6 = 1
+    net.ipv6.conf.lo.disable_ipv6 = 1
+
 05 - Make the network interface name start with eth0, 1 and so on.
   sudo nano /etc/default/grub
   GRUB_CMDLINE_LINUX="net.ifnames=0 biosdevname=0"
