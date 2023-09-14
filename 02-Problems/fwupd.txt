@@ -1,6 +1,12 @@
 Problem:
   fwupd[2925]: 08:01:10:0215 FuEngine failed to get releases for UEFI dbx: No releases found: Not compatible with org.freedesktop.fwupd version 1.7.9, requires >= 1.9.1
+  kernel: [230685.578316] Lockdown: fwupd: /dev/mem,kmem,port is restricted; see man kernel_lockdown.7
 
 Links:
+  01 - fwupd fails every day
+    https://forums.linuxmint.com/viewtopic.php?t=395196
 
 Solution:
+  sudo systemctl status fwupd
+  sudo systemctl stop fwupd
+  sudo systemctl disable fwupd
