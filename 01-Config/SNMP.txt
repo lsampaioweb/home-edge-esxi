@@ -26,14 +26,17 @@
 07 - Define the SNMP target address:
   esxcli system snmp set --v3targets edge-zabbix-01.homelab@161/edge-esxi-01-zabbix-user/priv/trap
 
-08 - Configuring ESXi Firewall
+08 - Set the log level
+  esxcli system snmp set --loglevel error
+
+09 - Configuring ESXi Firewall
   esxcli network firewall ruleset set --ruleset-id snmp --allowed-all false
   esxcli network firewall ruleset allowedip add --ruleset-id snmp --ip-address 192.168.5.0/28
   esxcli network firewall ruleset set --ruleset-id snmp --enabled true
 
-09 - Enable SNMP on ESXi:
+10 - Enable SNMP on ESXi:
   esxcli system snmp set --enable true
 
-10 - Test SNMP settings:
+11 - Test SNMP settings:
   esxcli system snmp test
   esxcli system snmp test -u=edge-esxi-01-zabbix-user -A=<password> -X=<password> -r
