@@ -14,7 +14,7 @@ Settings:
       CPU             : 2
       CPU Hot Plug    : Checked
     Memory:
-      RAM             : 4 GB
+      RAM             : 5 GB
       Memory Hot Plug : Checked
     Hard disk 1
       Size              : 25 GB
