@@ -1,7 +1,4 @@
 01 - /var/log/vmkwarning.log
-  vmkwarning: cpu2:262251)WARNING: HBX: 2720: Failed to cleanup registration key on volume64ed3be0-56ee94c6-362c-60beb408f766: Failure
-  vmkwarning: cpu2:262251)WARNING: Vol3: 4323: Error closing the volume: . Eviction fails: Failure
-
   vmkwarning: cpu2:262548)WARNING: NVMEDEV:7144 invalid Subsystem NQN, fallback to legacy nqn.
 
   vmkwarning: cpu0:262144)WARNING: PCI: 87: 0000:00:1f.5: Failed to add BAR[0] (MEM f=0x0 0xfe010000-0xfe011000): Limit exceeded

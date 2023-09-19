@@ -24,3 +24,13 @@ Settings:
     CD/DVD Drive 1
       Source            : Datastore ISO file
       Media             : [dt-vms-01] ISOs/ubuntu-22.04.2-live-server-amd64.iso
+
+Enable the UUID:
+  Right-click the virtual machine, and choose Edit Settings.
+  Click VM Options tab, and select Advanced.
+  Click Edit Configuration in Configuration Parameters.
+  Click Add parameter.
+  In the Key column, type disk.EnableUUID.
+  In the Value column, type TRUE.
+  Click OK and click Save.
+  Power on the virtual machine

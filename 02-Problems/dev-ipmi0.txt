@@ -1,0 +1,18 @@
+Problem:
+  snmpd[526466]: VMWARE-ENV-MIB offline extract from ipmi failed
+  snmpd[526466]: get_pnic_pkt_stats: fetch VSI_NODE_net_openPorts_type failed Not found
+  snmpd[526466]: get_pnic_pkt_stats: fetch VSI_NODE_net_openPorts_type failed Not found
+  snmpd[526466]: get_pnic_pkt_stats: fetch VSI_NODE_net_openPorts_type failed Not found
+  snmpd[526466]: get_pnic_pkt_stats: fetch VSI_NODE_net_openPorts_type failed Not found
+  snmpd[526466]: LLDP_ProcessPort: Failed to get status of port -2080374777: Bad parameter
+  snmpd[526466]: LLDP_ProcessSwitch: Failed to parse lldp data for port -2080374777: Bad parameter
+  snmpd[526466]: LLDP_RebuildMIB: Loading lldp mib failed while parsing switch vSwitch0
+  snmpd[526466]: open_dev: open device '/dev/ipmi0' failed 2 No such file or directory, device sensors offline
+  snmpd[526466]: VMWARE-ENV-MIB offline extract from ipmi failed
+
+Links:
+  01 - XXX
+    XXX
+
+Solution:
+  XXX

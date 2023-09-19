@@ -11,3 +11,6 @@
 
 04 - ESXi 8.0 Upgrade in three ways
   https://www.virtualizationhowto.com/2022/10/esxi-8-0-upgrade-in-three-ways/
+
+05 - Changing the default size of the ESX-OSData volume in ESXi 7.0
+  https://williamlam.com/2020/05/changing-the-default-size-of-the-esx-osdata-volume-in-esxi-7-0.html

@@ -1,0 +1,10 @@
+Problem:
+  vmkwarning: cpu2:262251)WARNING: HBX: 2720: Failed to cleanup registration key on volume64ed3be0-56ee94c6-362c-60beb408f766: Failure
+  vmkwarning: cpu2:262251)WARNING: Vol3: 4323: Error closing the volume: . Eviction fails: Failure
+
+Links:
+  01 - Failed to cleanup registration key on volume
+    https://communities.vmware.com/t5/Storage-Performance/Failed-to-cleanup-registration-key-on-volume/td-p/2972311
+
+Solution:
+  I removed the datastore from the disk that ESXi was installed on.
