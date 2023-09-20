@@ -14,3 +14,6 @@
 
 05 - Changing the default size of the ESX-OSData volume in ESXi 7.0
   https://williamlam.com/2020/05/changing-the-default-size-of-the-esx-osdata-volume-in-esxi-7-0.html
+
+06 - Host requirements for link aggregation (etherchannel, port channel, or LACP) in ESXi (1001938)
+  https://kb.vmware.com/s/article/1001938

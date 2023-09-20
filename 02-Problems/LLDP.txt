@@ -1,0 +1,11 @@
+Problem:
+  snmpd[526466]: LLDP_ProcessPort: Failed to get status of port -2080374777: Bad parameter
+  snmpd[526466]: LLDP_ProcessSwitch: Failed to parse lldp data for port -2080374777: Bad parameter
+  snmpd[526466]: LLDP_RebuildMIB: Loading lldp mib failed while parsing switch vSwitch0
+
+Links:
+  01 - Enable Link Layer Discovery Protocol (LLDP) in vSwitch
+    https://www.provirtualzone.com/enable-link-layer-discovery-protocol-lldp-in-vswitch/
+
+Solution:
+  XXX
