@@ -29,14 +29,25 @@
 08 - Set the log level
   esxcli system snmp set --loglevel error
 
-09 - Configuring ESXi Firewall
+09 - Choose the SNMP Source
+  enable IPMI as SNMP source
+  esxcli system snmp set --hwsrc sensors
+
+  enable CIM as SNMP source
+  esxcli system snmp set --hwsrc indications
+  
+10 - Configuring ESXi Firewall
   esxcli network firewall ruleset set --ruleset-id snmp --allowed-all false
   esxcli network firewall ruleset allowedip add --ruleset-id snmp --ip-address 192.168.5.0/28
   esxcli network firewall ruleset set --ruleset-id snmp --enabled true
 
-10 - Enable SNMP on ESXi:
+11 - Enable SNMP on ESXi:
   esxcli system snmp set --enable true
 
-11 - Test SNMP settings:
+12 - Enable Common Information Model (CIM).
+  esxcli system wbem get
+  esxcli system wbem set -e true
+
+13 - Test SNMP settings:
   esxcli system snmp test
   esxcli system snmp test -u=edge-esxi-01-zabbix-user -A=<password> -X=<password> -r
