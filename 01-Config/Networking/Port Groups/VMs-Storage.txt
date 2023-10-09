@@ -1,0 +1,3 @@
+Name    : VMs-Storage
+VLAN ID : 6
+vSwitch : vSwitch0
