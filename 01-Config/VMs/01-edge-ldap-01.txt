@@ -5,7 +5,7 @@ Guest OS:
   Guest OS family   : Linux
   Guest OS version  : Ubuntu Linux (64-bit)
 
-Storage: 
+Storage:
   Name: dt-vms-01
 
 Settings:
@@ -14,7 +14,7 @@ Settings:
       CPU             : 2
       CPU Hot Plug    : Checked
     Memory:
-      RAM             : 5 GB
+      RAM             : 4 GB
       Memory Hot Plug : Checked
     Hard disk 1
       Size              : 25 GB

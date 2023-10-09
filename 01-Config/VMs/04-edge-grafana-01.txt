@@ -5,7 +5,7 @@ Guest OS:
   Guest OS family   : Linux
   Guest OS version  : Ubuntu Linux (64-bit)
 
-Storage: 
+Storage:
   Name: dt-vms-01
 
 Settings:
@@ -14,14 +14,14 @@ Settings:
       CPU             : 2
       CPU Hot Plug    : Checked
     Memory:
-      RAM             : 5 GB
+      RAM             : 4 GB
       Memory Hot Plug : Checked
     Hard disk 1
       Size              : 25 GB
       Disk Provisioning : Thin provisioned
     Hard disk 2
       Size              : 100 GB
-      Disk Provisioning : Thin provisioned      
+      Disk Provisioning : Thin provisioned
     Network Adapter 1
       Name              : VMs-Monitoring
     CD/DVD Drive 1
