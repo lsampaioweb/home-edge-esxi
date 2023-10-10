@@ -3,6 +3,7 @@
   sudo hostnamectl hostname edge-postgresql-01.homelab
   sudo hostnamectl hostname edge-zabbix-01.homelab
   sudo hostnamectl hostname edge-grafana-01.homelab
+  sudo hostnamectl hostname edge-minio-01.homelab
 
 02 - Packages.
   sudo apt update && sudo apt upgrade -y &&
@@ -43,11 +44,11 @@
   GRUB_TIMEOUT=1
   sudo update-grub
 
-07 - Copiar certificado da CA para o servidor.
-  Criar chave SSH da CA.
+07 - Copy the CA certificate CA to the server.
+  Create the CA's SSH Key.
     ssh-keygen -o -a 100 -t ed25519 -C "Homelab Certificate Authority" -f /opt/certificates/certificate.authority/ca_host_key
 
-  Assinar as chaves SSH dos servidores com a CA.
+  Sign the SSH keys of the server with the CA.
     sudo nano ca_host_key
     cat /opt/certificates/certificate.authority/ca_host_key.key
     sudo chmod 600 ca_host_key
@@ -59,17 +60,18 @@
     sudo nano /etc/ssh/sshd_config
     HostCertificate /etc/ssh/ssh_host_ed25519_key-cert.pub
 
-  Confiar em chaves assinadas pela CA.
+  Trust on key signed by the CA.
     sudo nano /etc/ssh/ssh_known_hosts
-    # A CA key, accepted for any host in *.homelab
+    # The CA key, accepted for any host in *.homelab
     @cert-authority *.homelab ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMZaCxYOWNcHzIH0RqWMasEztJOvv51EK9Jq0/rS0keY Homelab Certificate Authority
 
   Restart the SSH daemon to make these changes happen:
     sudo service ssh restart
 
-  Adicionar a CA como certificado confiável.
+  Add the CA as a trusted certificate.
   cd /usr/local/share/ca-certificates
   sudo nano certificate.authority.crt
+  cat /opt/certificates/certificate.authority/certificate.authority.crt
   sudo update-ca-certificates
 
 08 - UFW.
@@ -124,6 +126,7 @@ ignoreip = 192.168.2.10/32
 
   To view the status and information regarding a particular jail like sshd
     sudo fail2ban-client status sshd
+    sudo fail2ban-client status apache-auth
 
   Ban an IP
     sudo fail2ban-client set sshd banip 23.34.45.56
@@ -150,4 +153,8 @@ ignoreip = 192.168.2.10/32
   sudo systemctl stop unattended-upgrades
   sudo apt remove --purge -y unattended-upgrades
 
-12 - Rsyslog as a Client.
+12 - Install the Zabbix agent.
+  https://github.com/lsampaioweb/home-edge-zabbix
+
+13 - Install the Promtail agent.
+  https://github.com/lsampaioweb/home-edge-grafana
