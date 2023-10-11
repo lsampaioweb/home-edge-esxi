@@ -9,3 +9,4 @@ Virtual Machines:
   edge-postgresql-01  : 2
   edge-zabbix-01      : 3
   edge-grafana-01     : 4
+  edge-minio-01       : 5
