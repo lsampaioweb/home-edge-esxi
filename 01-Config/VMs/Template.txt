@@ -155,8 +155,11 @@ ignoreip = 192.168.2.10/32
   sudo systemctl stop unattended-upgrades &&
   sudo apt remove --purge -y unattended-upgrades
 
-12 - Install the Zabbix agent.
+12 - Install SSSD.
+  https://github.com/lsampaioweb/home-edge-ldap
+
+13 - Install the Zabbix agent.
   https://github.com/lsampaioweb/home-edge-zabbix
 
-13 - Install the Promtail agent.
+14 - Install the Promtail agent.
   https://github.com/lsampaioweb/home-edge-grafana
