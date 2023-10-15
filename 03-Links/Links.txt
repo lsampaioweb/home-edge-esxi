@@ -17,3 +17,6 @@
 
 06 - Host requirements for link aggregation (etherchannel, port channel, or LACP) in ESXi (1001938)
   https://kb.vmware.com/s/article/1001938
+
+07 - USB Devices as VMFS Datastore in vSphere ESXi 7.0
+  https://www.virten.net/2020/09/usb-devices-as-vmfs-datastore-in-vsphere-esxi-7-0/
