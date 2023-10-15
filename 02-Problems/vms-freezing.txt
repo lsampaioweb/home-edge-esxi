@@ -23,7 +23,7 @@ Solution:
   06-9c-00 binary is for Pentium N6000/N6005 and Celeron N4500/N4505/N5100/N5105
   Recommended: 0x24000024.
 
-  cp /vmfs/volumes/dt-vms-01/ISOs/06-9c-00 uc_intel
+  cp /vmfs/volumes/dt-vms-01-gold/ISOs/06-9c-00 uc_intel
   gzip uc_intel
   cp uc_intel.gz /bootbank/uc_intel.b00
 

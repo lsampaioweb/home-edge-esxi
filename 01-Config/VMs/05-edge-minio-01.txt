@@ -6,7 +6,7 @@ Guest OS:
   Guest OS version  : Ubuntu Linux (64-bit)
 
 Storage:
-  Name: dt-vms-01
+  Name: dt-vms-01-gold
 
 Settings:
   Virtual Hardware:
@@ -22,11 +22,19 @@ Settings:
     Hard disk 2
       Size              : 100 GB
       Disk Provisioning : Thin provisioned
+    Hard disk 3
+      Size              : 100 GB
+      Disk Provisioning : Thin provisioned
+    Hard disk 4
+      Size              : 100 GB
+      Disk Provisioning : Thin provisioned
+    SCSI Controller 0
+      Type              : VMware Paravirtual
     Network Adapter 1
       Name              : VMs-Storage
     CD/DVD Drive 1
       Source            : Datastore ISO file
-      Media             : [dt-vms-01] ISOs/ubuntu-22.04.2-live-server-amd64.iso
+      Media             : [dt-vms-01-gold] ISOs/ubuntu-22.04.3-live-server-amd64.iso
 
 Enable the UUID:
   Right-click the virtual machine, and choose Edit Settings.

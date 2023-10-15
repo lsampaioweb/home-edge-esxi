@@ -1,7 +1,7 @@
 Installation:
   Device:
-    home-lv /home 4GB
-    var-lv  /var  6.9GB
+    home-lv 4GB   ext4 /home
+    var-lv  6.9GB ext4 /var
 
   Your name   : Luciano Sampaio Martins de Souza
   Server name : edge-XXX-01

@@ -6,7 +6,7 @@ Guest OS:
   Guest OS version  : Ubuntu Linux (64-bit)
 
 Storage:
-  Name: dt-vms-01
+  Name: dt-vms-01-gold
 
 Settings:
   Virtual Hardware:
@@ -26,7 +26,7 @@ Settings:
       Name              : VMs-Monitoring
     CD/DVD Drive 1
       Source            : Datastore ISO file
-      Media             : [dt-vms-01] ISOs/ubuntu-22.04.2-live-server-amd64.iso
+      Media             : [dt-vms-01-gold] ISOs/ubuntu-22.04.2-live-server-amd64.iso
 
 Enable the UUID:
   Right-click the virtual machine, and choose Edit Settings.

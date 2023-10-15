@@ -4,6 +4,7 @@
   sudo hostnamectl hostname edge-zabbix-01.homelab
   sudo hostnamectl hostname edge-grafana-01.homelab
   sudo hostnamectl hostname edge-minio-01.homelab
+  sudo hostnamectl hostname edge-minio-02.homelab
 
 02 - Packages.
   sudo apt update && sudo apt upgrade -y &&
@@ -44,15 +45,16 @@
   GRUB_TIMEOUT=1
   sudo update-grub
 
-07 - Copy the CA certificate CA to the server.
-  Create the CA's SSH Key.
-    ssh-keygen -o -a 100 -t ed25519 -C "Homelab Certificate Authority" -f /opt/certificates/certificate.authority/ca_host_key
+07 - Copy the Homelab CA certificate to the server.
+  # If the CA does not exist, you can create.
+    Create the CA's SSH Key.
+      ssh-keygen -o -a 100 -t ed25519 -C "Homelab Certificate Authority" -f /opt/certificates/certificate.authority/ca_host_key
 
   Sign the SSH keys of the server with the CA.
     sudo nano ca_host_key
-    cat /opt/certificates/certificate.authority/ca_host_key.key
+    cat /opt/Certificates/certificate.authority/ca_host_key.key
     sudo chmod 600 ca_host_key
-    sudo ssh-keygen -s ~/ca_host_key -I "$(hostname)" -n "$(hostname),$(hostname -I|tr ' ' ',')$(hostname).homelab" -V -5m:+520w -h /etc/ssh/ssh_host_dsa_key.pub /etc/ssh/ssh_host_rsa_key.pub /etc/ssh/ssh_host_ecdsa_key.pub /etc/ssh/ssh_host_ed25519_key.pub
+    sudo ssh-keygen -s ca_host_key -I "$(hostname)" -n "$(hostname),$(hostname -I|tr ' ' ',')$(hostname).homelab" -V -5m:+520w -h /etc/ssh/ssh_host_dsa_key.pub /etc/ssh/ssh_host_rsa_key.pub /etc/ssh/ssh_host_ecdsa_key.pub /etc/ssh/ssh_host_ed25519_key.pub
     Passoword: Keychain: "ssl.certificate.authority"
     sudo rm ca_host_key
 
@@ -71,7 +73,7 @@
   Add the CA as a trusted certificate.
   cd /usr/local/share/ca-certificates
   sudo nano certificate.authority.crt
-  cat /opt/certificates/certificate.authority/certificate.authority.crt
+  cat /opt/Certificates/certificate.authority/certificate.authority.crt
   sudo update-ca-certificates
 
 08 - UFW.
@@ -82,10 +84,10 @@
   sudo ufw default allow outgoing &&
   sudo ufw allow from 192.168.2.10 to any port ssh comment "MacBook-Luciano - SSH"
 
-  sudo touch /var/log/ufw.log && sudo chown syslog:syslog /var/log/ufw.log
-  sudo ufw enable
-
+  sudo touch /var/log/ufw.log && sudo chown syslog:syslog /var/log/ufw.log &&
+  sudo ufw enable &&
   sudo ufw status
+
   sudo ufw status verbose
   sudo ufw status numbered
 
@@ -150,7 +152,7 @@ ignoreip = 192.168.2.10/32
   sudo systemctl status systemd-resolved
 
 11 - Disable unattended upgrades
-  sudo systemctl stop unattended-upgrades
+  sudo systemctl stop unattended-upgrades &&
   sudo apt remove --purge -y unattended-upgrades
 
 12 - Install the Zabbix agent.
