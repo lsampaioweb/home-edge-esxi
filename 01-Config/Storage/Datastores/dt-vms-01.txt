@@ -1,5 +1,0 @@
-Name: dt-vms-01
-
-Folder:
-  01 - ISOs.
-    Upload the Ubuntu Desktop and Server ISO files.

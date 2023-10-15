@@ -1,0 +1,5 @@
+Name: dt-vms-01-gold
+
+Folder:
+  01 - ISOs.
+    Upload the Ubuntu Desktop and Server ISO files.
