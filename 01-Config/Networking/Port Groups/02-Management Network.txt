@@ -13,3 +13,6 @@ NIC teaming
   Notify switches             : Inherit from vSwitch
   Failback                    : Inherit from vSwitch
   Override failover order     : No
+
+Traffic shaping
+  Status                      : Inherit from vSwitch
