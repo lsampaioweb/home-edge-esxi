@@ -10,3 +10,4 @@ Virtual Machines:
   edge-zabbix-01      : 3
   edge-grafana-01     : 4
   edge-minio-01       : 5
+  edge-minio-02       : 6

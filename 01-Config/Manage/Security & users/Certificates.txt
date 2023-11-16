@@ -6,21 +6,24 @@
 02 - Copy the files to the server.
   scp -r /opt/certificates/edge-esxi-01.homelab/{*.crt,*.key} root@192.168.3.2:/etc/vmware/ssl/
 
-03 - Create a backup
-  cd /etc/vmware/ssl
+03 - Connect to the ESXi host.
+  ssh root@192.168.3.2
+
+04 - Create a backup
+  cd /etc/vmware/ssl &&
   cp rui.crt rui.crt.bak &&
   cp rui.key rui.key.bak
 
-04 - Add the content of the new crt and key files in the old files.
+06 - Add the content of the new crt and key files in the old files.
   cat edge-esxi-01.homelab.crt > rui.crt &&
   cat edge-esxi-01.homelab.key > rui.key
 
-05 - Remove the old files.
+07 - Remove the old files.
   rm edge-esxi-01.homelab.*
 
-06 - Restart the service:
+08 - Restart the service:
   /etc/init.d/hostd restart
   exit
 
-07 - Disable SSH access.
+09 - Disable SSH access.
   Host -> Actions -> Services -> Disable Secure Shell (SSH).
