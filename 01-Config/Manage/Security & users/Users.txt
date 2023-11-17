@@ -10,14 +10,14 @@ On Host -> Actions -> Permissions:
   Propagate to all children : Checked
   Add as group              : Unchecked
 
-02 - User name      : zabbix-user
+02 - User name      : edge-esxi-01-zabbix-user
 Description         : User that Zabbix will use connect and extract metrics.
 Password            : '<Keychain: "edge-esxi-01-zabbix-user">'
 Enable Shell Access : Unchecked
 
 On Host -> Actions -> Permissions:
   Add user for Host
-  Name                      : zabbix-user
+  Name                      : edge-esxi-01-zabbix-user
   Permission                : Read-only
   Propagate to all children : Checked
   Add as group              : Unchecked
