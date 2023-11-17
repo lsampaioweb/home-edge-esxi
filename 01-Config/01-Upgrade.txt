@@ -9,14 +9,19 @@
   esxcli network firewall ruleset set --enabled=true --ruleset-id=httpClient
 
 04 - Get the list of available esxi profiles using the following:
+  ** All commands takes a LONG TIME!!! Be patient
+
   esxcli software sources profile list --depot=https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-index.xml
-  esxcli software sources profile list --depot=file:///vmfs/volumes/dt-esxi-01/VMware-ESXi-8.0U1c-22088125-depot.zip
+  esxcli software sources profile list --depot=file:////vmfs/volumes/dt-vms-01-gold/ISOs/VMware-ESXi-8.0U2-22380479-depot.zip
 
   You can combine the above with grep to search for a specific major release
   esxcli software sources profile list --depot=https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-index.xml | grep standard
 
 05 - Install the update:
-  esxcli software profile update --depot=https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-index.xml --profile=ESXi-8.0U1c-22088125-standard
+  ** All commands takes a LONG TIME!!! Be patient
+
+  esxcli software profile update --depot=https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-index.xml --profile=ESXi-8.0U2-22380479-standard
+  esxcli software profile update --depot=file:////vmfs/volumes/dt-vms-01-gold/ISOs/VMware-ESXi-8.0U2-22380479-depot.zip --profile=ESXi-8.0U2-22380479-standard
 
 06 - Disable http requests from the ESXi host:
   esxcli network firewall ruleset set --enabled=false --ruleset-id=httpClient

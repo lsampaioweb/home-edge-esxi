@@ -16,6 +16,16 @@ Repository with the settings used on my ESXi 8 on the Home environment.
 
 1. Users.
 
-1. Autostart.
-
 1. Profile settings.
+
+1. Upgrade Host.
+
+1. Upgrade Intel Microcode.
+
+1. Register VMs
+
+1. SNMP to Zabbix.
+
+1. Logs to Grafana.
+
+1. Autostart.

@@ -1,0 +1,10 @@
+Virtual Machines -> Create / Register VM -> Register an existing virtual machine
+  Select the datastore: dt-vms-01-gold
+
+Virtual Machines:
+  edge-ldap-01        : 1
+  edge-postgresql-01  : 2
+  edge-zabbix-01      : 3
+  edge-grafana-01     : 4
+  edge-minio-01       : 5
+  edge-minio-02       : 6

@@ -1,0 +1,27 @@
+01 - Verify the current config.
+  vsish -e cat /hardware/cpu/cpuList/0 | grep -i -E 'family|model|stepping|microcode|revision'
+    Family:0x06
+    Model:0x9c
+    Stepping:0x00
+    Number of microcode updates:0
+    Original Revision:0x0000001d
+    Current Revision:0x0000001d
+
+  06-9c-00 binary is for Pentium N6000/N6005 and Celeron N4500/N4505/N5100/N5105
+  Recommended: 0x24000024.
+
+02 - Update the config.
+  cp /vmfs/volumes/dt-vms-01-gold/ISOs/06-9c-00 uc_intel &&
+  gzip uc_intel &&
+  cp uc_intel.gz /bootbank/uc_intel.b00
+
+03 - Reboot the host
+
+04 - Verify if the config was updated.
+  vsish -e cat /hardware/cpu/cpuList/0 | grep -i -E 'family|model|stepping|microcode|revision'
+    Family:0x06
+    Model:0x9c
+    Stepping:0x00
+    Number of microcode updates:1
+    Original Revision:0x0000001d
+    Current Revision:0x24000024
