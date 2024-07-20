@@ -4,7 +4,7 @@
   Host -> Actions -> Services -> Enable Secure Shell (SSH).
 
 02 - Copy the files to the server.
-  scp -r /opt/certificates/edge-esxi-01.homelab/{*.crt,*.key} root@192.168.3.2:/etc/vmware/ssl/
+  scp -r /opt/certificates/edge-esxi-01.lan.homelab/{*.crt,*.key} root@192.168.3.2:/etc/vmware/ssl/
 
 03 - Connect to the ESXi host.
   ssh root@192.168.3.2
@@ -15,11 +15,11 @@
   cp rui.key rui.key.bak
 
 06 - Add the content of the new crt and key files in the old files.
-  cat edge-esxi-01.homelab.crt > rui.crt &&
-  cat edge-esxi-01.homelab.key > rui.key
+  cat edge-esxi-01.lan.homelab.crt > rui.crt &&
+  cat edge-esxi-01.lan.homelab.key > rui.key
 
 07 - Remove the old files.
-  rm edge-esxi-01.homelab.*
+  rm edge-esxi-01.lan.homelab.*
 
 08 - Restart the service:
   /etc/init.d/hostd restart

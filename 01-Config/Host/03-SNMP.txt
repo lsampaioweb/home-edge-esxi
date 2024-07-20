@@ -24,7 +24,7 @@
   esxcli system snmp set --users edge-esxi-01-zabbix-user/XXX/YYY/priv
 
 07 - Define the SNMP target address:
-  esxcli system snmp set --v3targets edge-zabbix-01.homelab@161/edge-esxi-01-zabbix-user/priv/trap
+  esxcli system snmp set --v3targets edge-zabbix-01.lan.homelab@161/edge-esxi-01-zabbix-user/priv/trap
 
 08 - Set the log level
   esxcli system snmp set --loglevel error
