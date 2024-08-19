@@ -20,3 +20,6 @@
 
 07 - USB Devices as VMFS Datastore in vSphere ESXi 7.0
   https://www.virten.net/2020/09/usb-devices-as-vmfs-datastore-in-vsphere-esxi-7-0/
+
+08 - Using partedUtil command line disk partitioning utility on ESXi (1036609)
+  https://kb.vmware.com/s/article/1036609
