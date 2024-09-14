@@ -48,14 +48,14 @@
 07 - Copy the Homelab CA certificate to the server.
   # If the CA does not exist, you can create.
     Create the CA's SSH Key.
-      ssh-keygen -o -a 100 -t ed25519 -C "Homelab Certificate Authority" -f /opt/certificates/certificate.authority/ca_host_key
+      ssh-keygen -o -a 100 -t ed25519 -C "Homelab Certificate Authority" -f /opt/certificates/ca.lan.homelab/ca_host_key
 
   Sign the SSH keys of the server with the CA.
     sudo nano ca_host_key
-    cat /opt/Certificates/certificate.authority/ca_host_key.key
+    cat /opt/certificates/ca.lan.homelab/ca_host_key.key
     sudo chmod 600 ca_host_key
     sudo ssh-keygen -s ca_host_key -I "$(hostname)" -n "$(hostname),$(hostname -I|tr ' ' ',')$(hostname).lan.homelab" -V -5m:+520w -h /etc/ssh/ssh_host_dsa_key.pub /etc/ssh/ssh_host_rsa_key.pub /etc/ssh/ssh_host_ecdsa_key.pub /etc/ssh/ssh_host_ed25519_key.pub
-    Passoword: Keychain: "ssl.certificate.authority"
+    Passoword: Keychain: "ssl.ca.lan.homelab"
     sudo rm ca_host_key
 
   We need to establish the path to our host certificate file:
@@ -72,8 +72,8 @@
 
   Add the CA as a trusted certificate.
   cd /usr/local/share/ca-certificates
-  sudo nano certificate.authority.crt
-  cat /opt/Certificates/certificate.authority/certificate.authority.crt
+  sudo nano ca.lan.homelab.crt
+  cat /opt/certificates/ca.lan.homelab/ca.lan.homelab.crt
   sudo update-ca-certificates
 
 08 - UFW.
