@@ -72,8 +72,8 @@
 
   Add the CA as a trusted certificate.
   cd /usr/local/share/ca-certificates
-  sudo nano ca.lan.homelab.crt
-  cat /opt/certificates/ca.lan.homelab/ca.lan.homelab.crt
+  sudo nano root-ca.lan.home.crt
+  cat /opt/certificates/ca.lan.homelab/root-ca.lan.home.crt
   sudo update-ca-certificates
 
 08 - UFW.
